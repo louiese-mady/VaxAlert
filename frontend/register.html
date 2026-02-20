@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Create Account</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  height: 100vh;
+  background: #142e5c;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  width: 440px;
+  max-width: 95vw;
+  background: #fff;
+  border-radius: 20px;
+  padding: 44px 40px;
+  box-shadow: 0 24px 48px rgba(0,0,0,0.2), 0 8px 16px rgba(0,0,0,0.1);
+}
+
+.card-title {
+  text-align: center;
+  margin-bottom: 8px;
+  color: #0f172a;
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.card-subtitle {
+  text-align: center;
+  font-size: 14px;
+  color: #64748b;
+  margin-bottom: 28px;
+}
+
+.form-row {
+  display: flex;
+  gap: 12px;
+}
+
+.form-group {
+  margin-bottom: 18px;
+  flex: 1;
+}
+
+label {
+  display: block;
+  font-size: 13px;
+  margin-bottom: 6px;
+  color: #334155;
+}
+
+input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+  font-size: 14px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus {
+  outline: none;
+  border-color: #142e5c;
+  box-shadow: 0 0 0 3px rgba(20, 46, 92, 0.12);
+}
+
+.btn {
+  width: 100%;
+  padding: 14px;
+  border-radius: 10px;
+  border: none;
+  background: #142e5c;
+  color: white;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+  margin-top: 4px;
+}
+
+.btn:hover {
+  background: #0f2448;
+}
+
+.btn:active {
+  transform: scale(0.99);
+}
+
+.back-btn {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255,255,255,0.12);
+  color: #e2e8f0;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s, transform 0.15s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.back-btn:hover {
+  background: rgba(255,255,255,0.2);
+  color: #fff;
+  transform: translateX(-2px);
+}
+
+.back-btn:active {
+  transform: translateX(-1px);
+}
+
+.field-hint {
+  display: block;
+  font-size: 11px;
+  color: #64748b;
+  margin-top: 4px;
+}
+
+.form-error {
+  font-size: 13px;
+  color: #b91c1c;
+  margin-bottom: 14px;
+  padding: 10px 12px;
+  background: #fef2f2;
+  border-radius: 10px;
+  border: 1px solid #fecaca;
+  min-height: 20px;
+}
+
+input.invalid {
+  border-color: #b91c1c;
+}
+</style>
+</head>
+
+<body>
+
+<a href="login.html" class="back-btn" title="Back to Login" aria-label="Back to Login">←</a>
+
+<div class="card">
+  <h1 class="card-title">Create Account</h1>
+  <p class="card-subtitle">Join VaxAlert to manage vaccination schedules</p>
+
+  <form id="registerForm">
+    <div class="form-row">
+      <div class="form-group">
+        <label>First Name</label>
+        <input type="text" name="firstName" placeholder="Maria" required>
+      </div>
+      <div class="form-group">
+        <label>Last Name</label>
+        <input type="text" name="lastName" placeholder="Reyes" required>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Email Address</label>
+      <input type="email" name="email" placeholder="maria@example.com" required>
+    </div>
+
+    <div class="form-group">
+      <label>Contact Number</label>
+      <input type="tel" name="contactNumber" placeholder="+63 900 000 0000" required>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" name="password" id="password" placeholder="********" required minlength="8" autocomplete="new-password">
+        <small class="field-hint">At least 8 characters, one number, and one symbol</small>
+      </div>
+      <div class="form-group">
+        <label>Confirm Password</label>
+        <input type="password" name="confirmPassword" id="confirmPassword" placeholder="********" required autocomplete="new-password">
+      </div>
+    </div>
+
+    <div id="formError" class="form-error" role="alert" aria-live="polite"></div>
+
+    <button type="submit" class="btn">Create Account</button>
+  </form>
+</div>
+</body>
+</html>
+<script>
+  const registerForm = document.querySelector("#registerForm");
+  const formErrorEl = document.querySelector("#formError");
+  const passwordInput = document.querySelector("#password");
+  const confirmInput = document.querySelector("#confirmPassword");
+
+  function showError(msg) {
+    formErrorEl.textContent = msg;
+    formErrorEl.style.display = "block";
+  }
+
+  function clearError() {
+    formErrorEl.textContent = "";
+    formErrorEl.style.display = "none";
+    registerForm.querySelectorAll("input.invalid").forEach((el) => el.classList.remove("invalid"));
+  }
+
+  // Password: at least 8 characters, one number, one symbol
+  function isPasswordValid(password) {
+    if (password.length < 8) return false;
+    if (!/\d/.test(password)) return false;
+    if (!/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(password)) return false;
+    return true;
+  }
+
+  registerForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    clearError();
+
+    const formData = new FormData(registerForm);
+    const password = formData.get("password");
+    const confirmPassword = formData.get("confirmPassword");
+
+    if (!isPasswordValid(password)) {
+      showError("Password must be at least 8 characters and include one number and one symbol.");
+      passwordInput.classList.add("invalid");
+      return;
+    }
+
+    if (password !== confirmPassword) {
+      showError("Passwords do not match.");
+      confirmInput.classList.add("invalid");
+      return;
+    }
+
+    const data = {
+      email: formData.get("email").trim(),
+      password,
+      firstName: formData.get("firstName").trim(),
+      lastName: formData.get("lastName").trim(),
+      contactNumber: formData.get("contactNumber").trim(),
+    };
+
+    try {
+      const response = await fetch("http://localhost:5000/api/auth/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        alert("User registered successfully!");
+        registerForm.reset();
+      } else {
+        showError(result.error || "Registration failed.");
+      }
+    } catch (error) {
+      showError("Error: " + error.message);
+    }
+  });
+</script>
+

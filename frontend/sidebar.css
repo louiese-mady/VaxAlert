@@ -1,0 +1,81 @@
+/* ===== SIDEBAR ===== */
+.sidebar {
+  width: 240px;
+  height: 100vh;
+  background: #ffffff;
+  padding: 25px 20px;
+  border-right: 1px solid #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* ===== SIDEBAR HEADER ===== */
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+.sidebar-logo {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  display: block;
+}
+
+.sidebar-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.sidebar-title {
+  font-weight: 700;
+  font-size: 16px;
+  color: #142e5c;
+}
+
+.sidebar-sub {
+  font-size: 11px;
+  color: #64748b;
+}
+
+/* ===== MENU ===== */
+.menu a {
+  display: block;
+  padding: 12px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #334155;
+  font-size: 14px;
+  transition: 0.2s ease;
+}
+
+.menu a.active {
+  background: #142e5c;
+  color: white;
+}
+
+.menu a:hover {
+  background: #e2e8f0;
+}
+
+/* ===== PROFILE SECTION ===== */
+.profile {
+  border-top: 1px solid #e2e8f0;
+  padding-top: 20px;
+  font-size: 14px;
+}
+
+.profile-name {
+  font-weight: 600;
+}
+
+.signout {
+  color: red;
+  cursor: pointer;
+  margin-top: 10px;
+}

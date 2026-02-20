@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vaccination Schedule</title>
+
+<link rel="stylesheet" href="sidebar.css">
+
+<style>
+body { display: flex; background: #f1f5f9; font-family:"Segoe UI",sans-serif; }
+.main { flex: 1; padding: 40px; }
+
+.header { display:flex; justify-content:space-between; margin-bottom:25px; }
+.header h1 { font-size:24px; color:#1e293b; }
+.header p { font-size:14px; color:#64748b; margin-top:5px; }
+
+.card {
+  background:white;
+  border-radius:14px;
+  padding:20px;
+  box-shadow:0 8px 20px rgba(0,0,0,0.05);
+}
+
+.search input {
+  width:300px;
+  padding:10px;
+  border-radius:8px;
+  border:1px solid #cbd5e1;
+  margin-bottom:15px;
+}
+
+table { width:100%; border-collapse:collapse; font-size:14px; }
+th { background:#f8fafc; padding:12px; text-align:left; }
+td { padding:12px; border-top:1px solid #e2e8f0; }
+
+.badge { padding:5px 10px; border-radius:20px; font-size:12px; }
+.completed { background:#d1fae5; color:#047857; }
+.overdue { background:#fee2e2; color:#b91c1c; }
+.due { background:#fef3c7; color:#b45309; }
+</style>
+</head>
+
+<body>
+
+<div class="sidebar">
+  <div>
+    <div class="sidebar-header">
+      <img src="logo.png" class="sidebar-logo">
+      <div class="sidebar-text">
+        <div class="sidebar-title">VaxAlert</div>
+        <div class="sidebar-sub">Reganion Children's Clinic</div>
+      </div>
+    </div>
+
+    <div class="menu">
+      <a href="parentdb.html">Dashboard</a>
+      <a href="schedule.html" class="active">Schedule</a>
+      <a href="history.html">History</a>
+      <a href="preferences.html">Preferences</a>
+      <a href="profile.html">Profile</a>
+    </div>
+  </div>
+
+  <div class="profile">
+    <div class="profile-name" id="sidebarName"></div>
+    <div style="font-size:12px;color:#64748b;">parent</div>
+    <div class="signout" onclick="logout()">Sign Out</div>
+  </div>
+</div>
+
+<div class="main">
+  <div class="header">
+    <div>
+      <h1>Vaccination Schedule</h1>
+      <p>Predicted dates for upcoming vaccinations</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="search">
+      <input type="text" placeholder="Search vaccine...">
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Vaccine</th>
+          <th>Dose</th>
+          <th>Predicted Date</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>MMR</td>
+          <td>Dose 1</td>
+          <td>2023-05-15</td>
+          <td><span class="badge completed">Completed</span></td>
+        </tr>
+        <tr>
+          <td>Varicella</td>
+          <td>Dose 1</td>
+          <td>2023-08-15</td>
+          <td><span class="badge overdue">Overdue</span></td>
+        </tr>
+        <tr>
+          <td>Hepatitis A</td>
+          <td>Dose 2</td>
+          <td>2023-11-15</td>
+          <td><span class="badge due">Due Soon</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<script>
+const name = localStorage.getItem("parentName") || "Maria";
+document.getElementById("sidebarName").textContent = name;
+
+function logout(){
+  localStorage.removeItem("parentName");
+  window.location.href="login.html";
+}
+</script>
+
+</body>
+</html>

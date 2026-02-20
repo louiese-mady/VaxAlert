@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vaccination History</title>
+
+<link rel="stylesheet" href="sidebar.css">
+
+<style>
+body { display:flex; background:#f1f5f9; font-family:"Segoe UI",sans-serif; }
+.main { flex:1; padding:40px; }
+
+h1 { font-size:24px; color:#1e293b; }
+.sub { color:#64748b; margin-bottom:25px; font-size:14px; }
+
+.card {
+  background:white;
+  border-radius:14px;
+  padding:20px;
+  box-shadow:0 8px 20px rgba(0,0,0,0.05);
+}
+
+table { width:100%; border-collapse:collapse; font-size:14px; }
+th { background:#f8fafc; padding:12px; text-align:left; color:#475569; }
+td { padding:12px; border-top:1px solid #e2e8f0; }
+
+.filter-btn {
+  padding:8px 12px;
+  border-radius:8px;
+  border:1px solid #cbd5e1;
+  background:#f8fafc;
+  margin-bottom:15px;
+  cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div class="sidebar">
+  <div>
+    <div class="sidebar-header">
+      <img src="logo.png" class="sidebar-logo">
+      <div class="sidebar-text">
+        <div class="sidebar-title">VaxAlert</div>
+        <div class="sidebar-sub">Reganion Children's Clinic</div>
+      </div>
+    </div>
+
+    <div class="menu">
+      <a href="parentdb.html">Dashboard</a>
+      <a href="schedule.html">Schedule</a>
+      <a href="history.html" class="active">History</a>
+      <a href="preferences.html">Preferences</a>
+      <a href="profile.html">Profile</a>
+    </div>
+  </div>
+
+  <div class="profile">
+    <div class="profile-name" id="sidebarName"></div>
+    <div style="font-size:12px;color:#64748b;">parent</div>
+    <div class="signout" onclick="logout()">Sign Out</div>
+  </div>
+</div>
+
+<div class="main">
+  <h1>Vaccination History</h1>
+  <div class="sub">Past records of administered vaccines</div>
+
+  <div class="card">
+    <button class="filter-btn">Filter by Date</button>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Vaccine</th>
+          <th>Dose</th>
+          <th>Date Administered</th>
+          <th>Administered By</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>BCG</td>
+          <td>Dose 1</td>
+          <td>2022-05-16</td>
+          <td>Dr. Reganion</td>
+        </tr>
+        <tr>
+          <td>Hepatitis B</td>
+          <td>Dose 1</td>
+          <td>2022-05-16</td>
+          <td>Dr. Reganion</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<script>
+const name = localStorage.getItem("parentName") || "Maria";
+document.getElementById("sidebarName").textContent = name;
+
+function logout(){
+  localStorage.removeItem("parentName");
+  window.location.href="login.html";
+}
+</script>
+
+</body>
+</html>

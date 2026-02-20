@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login</title>
+
+<style>
+/* ===== RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* ===== PAGE BACKGROUND ===== */
+body {
+  height: 100vh;
+  background: #142e5c;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ===== CARD ===== */
+.card {
+  width: 420px;
+  background: #f1f5f9;
+  border-radius: 16px;
+  padding: 40px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+}
+
+/* ===== LOGO AREA ===== */
+.logo-area {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.logo-area h1 {
+  font-size: 24px;
+  color: #142e5c;
+  margin-top: 10px;
+}
+
+.logo-area p {
+  font-size: 12px;
+  color: #64748b;
+}
+
+.logo-area img {
+  display: block;
+  margin: 0 auto;
+  object-fit: contain;
+}
+
+.logo-placeholder {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto;
+  background: linear-gradient(135deg, #142e5c 0%, #1e3a6e 100%);
+  color: #fff;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba(20, 46, 92, 0.35);
+}
+
+/* ===== FORM ===== */
+.form-group {
+  margin-bottom: 18px;
+}
+
+label {
+  display: block;
+  font-size: 13px;
+  margin-bottom: 6px;
+  color: #334155;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  font-size: 14px;
+}
+
+input:focus {
+  outline: none;
+  border-color: #142e5c;
+}
+
+/* ===== REMEMBER ROW ===== */
+.row-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: 13px;
+  margin-bottom: 18px;
+  color: #475569;
+}
+
+.row-between a {
+  color: #142e5c;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.row-between a:hover {
+  text-decoration: underline;
+}
+
+/* Remember me: custom checkbox + label */
+.remember-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.remember-wrap input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  padding: 0;
+  accent-color: #142e5c;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.remember-wrap span {
+  font-size: 13px;
+  color: #475569;
+  line-height: 1.3;
+}
+
+.remember-wrap:hover span {
+  color: #334155;
+}
+
+/* ===== BUTTON ===== */
+.btn {
+  width: 100%;
+  padding: 13px;
+  border-radius: 8px;
+  border: none;
+  background: #142e5c;
+  color: white;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn:hover {
+  background: #0f2448;
+}
+
+/* ===== CREATE ACCOUNT LINK ===== */
+.small-text {
+  text-align: center;
+  margin-top: 18px;
+  font-size: 13px;
+  color: #475569;
+}
+
+.small-text a {
+  color: #142e5c;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.small-text a:hover {
+  text-decoration: underline;
+}
+
+.form-error {
+  font-size: 13px;
+  color: #b91c1c;
+  margin-bottom: 12px;
+  padding: 10px 12px;
+  background: #fef2f2;
+  border-radius: 8px;
+  border: 1px solid #fecaca;
+}
+
+.form-success {
+  font-size: 13px;
+  color: #166534;
+  margin-bottom: 12px;
+  padding: 10px 12px;
+  background: #f0fdf4;
+  border-radius: 8px;
+  border: 1px solid #bbf7d0;
+}
+
+input.invalid {
+  border-color: #b91c1c;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+  <div class="logo-area" id="logoArea">
+    <img src="logo.png" width="160" height="160" alt="VaxAlert" id="logoImg" onerror="this.style.display='none'; document.getElementById('logoPlaceholder').style.display='flex';">
+    <div class="logo-placeholder" id="logoPlaceholder" style="display: none;">VaxAlert</div>
+  </div>
+
+  <form id="loginForm">
+    <div id="formMessage" class="form-error" role="alert" aria-live="polite" style="display: none;"></div>
+
+    <div class="form-group">
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" placeholder="maria.reyes@example.com" required autocomplete="email">
+    </div>
+
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" placeholder="********" required autocomplete="current-password">
+    </div>
+
+    <div class="row-between">
+      <label class="remember-wrap">
+        <input type="checkbox" id="rememberMe" name="rememberMe">
+        <span>Remember me</span>
+      </label>
+      <a href="#">Forgot password?</a>
+    </div>
+
+    <button type="submit" class="btn">Login →</button>
+  </form>
+
+  <div class="small-text">
+    Don't have an account?
+    <a href="register.html">Create Account</a>
+  </div>
+
+</div>
+
+<script>
+(function () {
+  const form = document.getElementById("loginForm");
+  const emailInput = document.getElementById("email");
+  const passwordInput = document.getElementById("password");
+  const rememberMe = document.getElementById("rememberMe");
+  const messageEl = document.getElementById("formMessage");
+
+  const REMEMBER_KEY = "vaxalert_remember_email";
+  const API_URL = "http://localhost:5000";
+
+  function showMessage(text, isError) {
+    messageEl.textContent = text;
+    messageEl.className = isError ? "form-error" : "form-success";
+    messageEl.style.display = "block";
+    form.querySelectorAll("input.invalid").forEach(function (el) { el.classList.remove("invalid"); });
+  }
+
+  function clearMessage() {
+    messageEl.textContent = "";
+    messageEl.style.display = "none";
+  }
+
+  // URL params: ?verified=1 or ?error=...
+  var params = new URLSearchParams(window.location.search);
+  if (params.get("verified") === "1") {
+    showMessage("Email verified. You can log in now.", false);
+    window.history.replaceState({}, "", window.location.pathname);
+  } else if (params.get("error")) {
+    var err = params.get("error");
+    var msg = err === "invalid-token" ? "Verification link is invalid." : err === "token-expired" ? "Verification link expired. Please request a new one." : "Verification failed.";
+    showMessage(msg, true);
+    window.history.replaceState({}, "", window.location.pathname);
+  }
+
+  // Remember me: load saved email
+  try {
+    var saved = localStorage.getItem(REMEMBER_KEY);
+    if (saved) {
+      emailInput.value = saved;
+      rememberMe.checked = true;
+    }
+  } catch (e) {}
+
+  form.addEventListener("submit", async function (e) {
+    e.preventDefault();
+    clearMessage();
+
+    var email = emailInput.value.trim();
+    var password = passwordInput.value;
+
+    if (rememberMe.checked) {
+      try { localStorage.setItem(REMEMBER_KEY, email); } catch (e) {}
+    } else {
+      try { localStorage.removeItem(REMEMBER_KEY); } catch (e) {}
+    }
+
+    try {
+      var res = await fetch(API_URL + "/api/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: email, password: password }),
+      });
+
+      var data = await res.json().catch(function () { return {}; });
+
+      if (res.ok) {
+        showMessage("Login successful! Redirecting…", false);
+        if (data.idToken) {
+          try { sessionStorage.setItem("vaxalert_idToken", data.idToken); } catch (e) {}
+          try { sessionStorage.setItem("vaxalert_userId", data.userId || ""); } catch (e) {}
+        }
+        setTimeout(function () {
+          window.location.href = "schedule.html";
+        }, 500);
+      } else {
+        var msg = data.error || "Login failed.";
+        showMessage(msg, true);
+        if (res.status === 401) {
+          passwordInput.classList.add("invalid");
+          passwordInput.focus();
+        }
+        if (res.status === 403) {
+          emailInput.classList.add("invalid");
+        }
+      }
+    } catch (err) {
+      showMessage("Cannot reach server. Is the backend running on " + API_URL + "? " + err.message, true);
+    }
+  });
+})();
+</script>
+
+</body>
+</html>

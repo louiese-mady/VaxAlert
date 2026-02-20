@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reminder Preferences</title>
+
+<link rel="stylesheet" href="sidebar.css">
+
+<style>
+body { display:flex; background:#f1f5f9; font-family:"Segoe UI",sans-serif; }
+.main { flex:1; padding:40px; }
+
+h1 { font-size:24px; color:#1e293b; }
+.sub { color:#64748b; margin-bottom:25px; font-size:14px; }
+
+.card {
+  background:white;
+  border-radius:14px;
+  padding:25px;
+  box-shadow:0 8px 20px rgba(0,0,0,0.05);
+  max-width:600px;
+}
+
+.option {
+  border:1px solid #cbd5e1;
+  padding:15px;
+  border-radius:10px;
+  margin-bottom:15px;
+  cursor:pointer;
+}
+
+.option.active {
+  border:2px solid #3b82f6;
+  background:#eff6ff;
+}
+
+.btn {
+  background:#142e5c;
+  color:white;
+  padding:10px 20px;
+  border:none;
+  border-radius:8px;
+  cursor:pointer;
+  margin-top:20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="sidebar">
+  <div>
+    <div class="sidebar-header">
+      <img src="logo.png" class="sidebar-logo">
+      <div class="sidebar-text">
+        <div class="sidebar-title">VaxAlert</div>
+        <div class="sidebar-sub">Reganion Children's Clinic</div>
+      </div>
+    </div>
+
+    <div class="menu">
+      <a href="parentdb.html">Dashboard</a>
+      <a href="schedule.html">Schedule</a>
+      <a href="history.html">History</a>
+      <a href="preferences.html" class="active">Preferences</a>
+      <a href="profile.html">Profile</a>
+    </div>
+  </div>
+
+  <div class="profile">
+    <div class="profile-name" id="sidebarName"></div>
+    <div style="font-size:12px;color:#64748b;">parent</div>
+    <div class="signout" onclick="logout()">Sign Out</div>
+  </div>
+</div>
+
+<div class="main">
+  <h1>Reminder Preferences</h1>
+  <div class="sub">Choose how you want to receive vaccination alerts</div>
+
+  <div class="card">
+    <div class="option">SMS Only</div>
+    <div class="option">Email Only</div>
+    <div class="option active">Both SMS & Email (Recommended)</div>
+    <button class="btn">Save Preferences</button>
+  </div>
+</div>
+
+<script>
+const name = localStorage.getItem("parentName") || "Maria";
+document.getElementById("sidebarName").textContent = name;
+
+function logout(){
+  localStorage.removeItem("parentName");
+  window.location.href="login.html";
+}
+</script>
+
+</body>
+</html>
