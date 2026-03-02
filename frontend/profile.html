@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Profile Settings</title>
 
-<<<<<<< HEAD
 <style>
 body {
   margin: 0;
@@ -179,86 +178,16 @@ input:disabled { background: #f1f5f9; color: #64748b; }
   padding: 20px;
   color: #64748b;
 }
-=======
-<link rel="stylesheet" href="sidebar.css">
-
-<style>
-body { display:flex; background:#f1f5f9; font-family:"Segoe UI",sans-serif; }
-.main { flex:1; padding:40px; }
-
-h1 { font-size:24px; color:#1e293b; }
-.sub { color:#64748b; margin-bottom:25px; font-size:14px; }
-
-.card {
-  background:white;
-  border-radius:14px;
-  padding:25px;
-  box-shadow:0 8px 20px rgba(0,0,0,0.05);
-  max-width:650px;
-  margin-bottom:20px;
-}
-
-.card h3 { color:#1e293b; margin-bottom:16px; }
-
-label { display:block; font-size:13px; margin-bottom:6px; color:#334155; font-weight:500; }
-
-input {
-  width:100%;
-  padding:10px 14px;
-  border-radius:8px;
-  border:1px solid #cbd5e1;
-  margin-bottom:15px;
-  font-size:14px;
-}
-
-input:disabled { background:#f1f5f9; color:#64748b; }
-
-.btn {
-  background:#142e5c;
-  color:white;
-  padding:10px 20px;
-  border:none;
-  border-radius:8px;
-  cursor:pointer;
-  font-size:14px;
-  font-weight:600;
-  transition: background 0.2s;
-}
-
-.btn:hover { background:#0f2448; }
-
-.form-msg {
-  font-size:13px;
-  padding:10px 12px;
-  border-radius:8px;
-  margin-bottom:12px;
-  display:none;
-}
-
-.form-msg.success { background:#f0fdf4; color:#166534; border:1px solid #bbf7d0; }
-.form-msg.error { background:#fef2f2; color:#b91c1c; border:1px solid #fecaca; }
-
-.field-hint { font-size:11px; color:#64748b; margin-top:-10px; margin-bottom:15px; }
-
-#loadingIndicator { text-align:center; padding:20px; color:#64748b; }
->>>>>>> cd6892aa6594474173c505c68faff0b908a7fd87
 </style>
 </head>
 
 <body>
 
 <div class="sidebar">
-<<<<<<< HEAD
   <div class="sidebar-content">
     <div class="sidebar-header">
       <img src="logo.png" class="sidebar-logo">
       <div>
-=======
-  <div>
-    <div class="sidebar-header">
-      <img src="logo.png" class="sidebar-logo">
-      <div class="sidebar-text">
->>>>>>> cd6892aa6594474173c505c68faff0b908a7fd87
         <div class="sidebar-title">VaxAlert</div>
         <div class="sidebar-sub">Reganion Children's Clinic</div>
       </div>
@@ -275,11 +204,7 @@ input:disabled { background:#f1f5f9; color:#64748b; }
 
   <div class="profile">
     <div class="profile-name" id="sidebarName">Loading...</div>
-<<<<<<< HEAD
     <div class="profile-role">Parent</div>
-=======
-    <div style="font-size:12px;color:#64748b;" id="sidebarRole">parent</div>
->>>>>>> cd6892aa6594474173c505c68faff0b908a7fd87
     <div class="signout" onclick="logout()">Sign Out</div>
   </div>
 </div>
@@ -288,7 +213,6 @@ input:disabled { background:#f1f5f9; color:#64748b; }
   <h1>Profile Settings</h1>
   <div class="sub">Manage your account information and security</div>
 
-<<<<<<< HEAD
   <div id="loadingIndicator">
     <p>Loading profile information...</p>
   </div>
@@ -298,19 +222,10 @@ input:disabled { background:#f1f5f9; color:#64748b; }
     <p id="profileRole" style="color:#64748b;font-size:13px;margin-bottom:16px;">
       Parent Account
     </p>
-=======
-  <div id="loadingIndicator"><p>Loading profile information...</p></div>
-
-  <!-- Profile Card -->
-  <div class="card" id="profileCard" style="display:none;">
-    <h3 id="profileFullName"></h3>
-    <p style="color:#64748b; font-size:13px; margin-bottom:16px;" id="profileRole">Parent Account</p>
->>>>>>> cd6892aa6594474173c505c68faff0b908a7fd87
 
     <div id="profileMsg" class="form-msg"></div>
 
     <label>First Name</label>
-<<<<<<< HEAD
     <input type="text" id="firstName">
 
     <label>Last Name</label>
@@ -322,51 +237,23 @@ input:disabled { background:#f1f5f9; color:#64748b; }
 
     <label>Contact Number</label>
     <input type="text" id="contactNumber">
-=======
-    <input type="text" id="firstName" placeholder="First name">
-
-    <label>Last Name</label>
-    <input type="text" id="lastName" placeholder="Last name">
-
-    <label>Email Address</label>
-    <input type="email" id="email" placeholder="Email address" disabled>
-    <div class="field-hint">Email cannot be changed for security reasons</div>
-
-    <label>Contact Number</label>
-    <input type="text" id="contactNumber" placeholder="+63 900 000 0000">
->>>>>>> cd6892aa6594474173c505c68faff0b908a7fd87
 
     <button class="btn" onclick="saveProfileChanges()">Save Changes</button>
   </div>
 
-<<<<<<< HEAD
   <div class="card" id="securityCard" style="display:none;">
     <h3>Security</h3>
     <p style="color:#64748b;font-size:13px;margin-bottom:16px;">
       Update your password
     </p>
-=======
-  <!-- Security Card -->
-  <div class="card" id="securityCard" style="display:none;">
-    <h3>Security</h3>
-    <p style="color:#64748b; font-size:13px; margin-bottom:16px;">Update your password</p>
->>>>>>> cd6892aa6594474173c505c68faff0b908a7fd87
 
     <div id="passwordMsg" class="form-msg"></div>
 
     <label>New Password</label>
-<<<<<<< HEAD
     <input type="password" id="newPassword">
 
     <label>Confirm New Password</label>
     <input type="password" id="confirmPassword">
-=======
-    <input type="password" id="newPassword" placeholder="Enter new password">
-    <div class="field-hint">At least 8 characters, one number, and one symbol</div>
-
-    <label>Confirm New Password</label>
-    <input type="password" id="confirmPassword" placeholder="Confirm new password">
->>>>>>> cd6892aa6594474173c505c68faff0b908a7fd87
 
     <button class="btn" onclick="changePassword()">Update Password</button>
   </div>
@@ -375,7 +262,6 @@ input:disabled { background:#f1f5f9; color:#64748b; }
 <script>
 const API_BASE_URL = "http://localhost:5502";
 
-<<<<<<< HEAD
 function getAuthToken() {
   return localStorage.getItem("idToken");
 }
@@ -414,30 +300,12 @@ async function apiCall(endpoint, options = {}) {
     console.error("API call failed:", error);
     return null;
   }
-=======
-function getAuthToken() { return localStorage.getItem("idToken"); }
-
-async function apiCall(endpoint, options = {}) {
-  const token = getAuthToken();
-  if (!token) { window.location.href = "login.html"; return null; }
-  const headers = { "Content-Type": "application/json", "Authorization": `Bearer ${token}`, ...options.headers };
-  try {
-    const response = await fetch(`${API_BASE_URL}${endpoint}`, { ...options, headers });
-    if (response.status === 401) { localStorage.clear(); window.location.href = "login.html"; return null; }
-    if (!response.ok) { const err = await response.json().catch(() => ({})); return { _error: true, ...err }; }
-    return await response.json();
-  } catch (error) { console.error("API call failed:", error); return null; }
->>>>>>> cd6892aa6594474173c505c68faff0b908a7fd87
 }
 
 function showMsg(id, text, isError) {
   const el = document.getElementById(id);
   el.textContent = text;
-<<<<<<< HEAD
   el.className = `form-msg ${isError ? "error" : "success"}`;
-=======
-  el.className = `form-msg ${isError ? 'error' : 'success'}`;
->>>>>>> cd6892aa6594474173c505c68faff0b908a7fd87
   el.style.display = "block";
   setTimeout(() => { el.style.display = "none"; }, 4000);
 }
@@ -447,24 +315,14 @@ async function loadProfile() {
 
   const profile = await apiCall("/api/parent/profile");
   if (!profile || profile._error) {
-<<<<<<< HEAD
     loading.innerHTML = '<p style="color:#b91c1c;">Failed to load profile.</p>';
-=======
-    loading.innerHTML = '<p style="color:#b91c1c;">Failed to load profile. Please try again.</p>';
->>>>>>> cd6892aa6594474173c505c68faff0b908a7fd87
     return;
   }
 
   const fullName = `${profile.firstName} ${profile.lastName}`;
-<<<<<<< HEAD
 
   document.getElementById("sidebarName").textContent = fullName;
   document.getElementById("profileFullName").textContent = fullName;
-=======
-  document.getElementById("sidebarName").textContent = fullName;
-  document.getElementById("profileFullName").textContent = fullName;
-  document.getElementById("profileRole").textContent = (profile.role || "parent").charAt(0).toUpperCase() + (profile.role || "parent").slice(1) + " Account";
->>>>>>> cd6892aa6594474173c505c68faff0b908a7fd87
 
   document.getElementById("firstName").value = profile.firstName || "";
   document.getElementById("lastName").value = profile.lastName || "";
@@ -476,82 +334,12 @@ async function loadProfile() {
   document.getElementById("securityCard").style.display = "block";
 }
 
-<<<<<<< HEAD
-=======
-async function saveProfileChanges() {
-  const firstName = document.getElementById("firstName").value.trim();
-  const lastName = document.getElementById("lastName").value.trim();
-  const contactNumber = document.getElementById("contactNumber").value.trim();
-
-  if (!firstName || !lastName || !contactNumber) {
-    showMsg("profileMsg", "Please fill in all fields.", true);
-    return;
-  }
-
-  const result = await apiCall("/api/parent/update-profile", {
-    method: "PUT",
-    body: JSON.stringify({ firstName, lastName, contactNumber }),
-  });
-
-  if (result && !result._error) {
-    showMsg("profileMsg", "Profile updated successfully!", false);
-    const fullName = `${firstName} ${lastName}`;
-    document.getElementById("sidebarName").textContent = fullName;
-    document.getElementById("profileFullName").textContent = fullName;
-    localStorage.setItem("parentName", fullName);
-  } else {
-    showMsg("profileMsg", result?.error || "Failed to update profile.", true);
-  }
-}
-
-async function changePassword() {
-  const newPassword = document.getElementById("newPassword").value;
-  const confirmPassword = document.getElementById("confirmPassword").value;
-
-  if (!newPassword || !confirmPassword) {
-    showMsg("passwordMsg", "Please fill in all password fields.", true);
-    return;
-  }
-
-  if (newPassword !== confirmPassword) {
-    showMsg("passwordMsg", "Passwords do not match.", true);
-    return;
-  }
-
-  if (newPassword.length < 8 || !/\d/.test(newPassword) || !/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(newPassword)) {
-    showMsg("passwordMsg", "Password must be at least 8 characters with one number and one symbol.", true);
-    return;
-  }
-
-  const result = await apiCall("/api/auth/change-password", {
-    method: "PUT",
-    body: JSON.stringify({ newPassword }),
-  });
-
-  if (result && !result._error) {
-    showMsg("passwordMsg", "Password updated successfully!", false);
-    document.getElementById("newPassword").value = "";
-    document.getElementById("confirmPassword").value = "";
-  } else {
-    showMsg("passwordMsg", result?.error || "Failed to change password.", true);
-  }
-}
-
->>>>>>> cd6892aa6594474173c505c68faff0b908a7fd87
 function logout() {
   localStorage.clear();
   window.location.href = "login.html";
 }
 
-<<<<<<< HEAD
 document.addEventListener("DOMContentLoaded", loadProfile);
-=======
-if (document.readyState === "loading") {
-  document.addEventListener("DOMContentLoaded", loadProfile);
-} else {
-  loadProfile();
-}
->>>>>>> cd6892aa6594474173c505c68faff0b908a7fd87
 </script>
 
 </body>
