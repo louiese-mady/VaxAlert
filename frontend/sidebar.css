@@ -1,7 +1,8 @@
 /* ===== SIDEBAR ===== */
 .sidebar {
+  position:fixed;
   width: 240px;
-  height: 100vh;
+  height: 98vh;
   background: #ffffff;
   padding: 25px 20px;
   border-right: 1px solid #e2e8f0;
@@ -11,30 +12,26 @@
 }
 
 /* ===== SIDEBAR HEADER ===== */
+.sidebar-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px 15px;
+}
+
 .sidebar-header {
   display: flex;
   align-items: center;
-  gap: 12px;
-  margin-bottom: 30px;
+  margin-bottom: 25px;
 }
 
 .sidebar-logo {
-  width: 28px;
-  height: 28px;
-  object-fit: contain;
-  display: block;
-}
-
-.sidebar-text {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.1;
+  width: 40px;
+  margin-right: 10px;
 }
 
 .sidebar-title {
   font-weight: 700;
   font-size: 16px;
-  color: #142e5c;
 }
 
 .sidebar-sub {
@@ -45,13 +42,17 @@
 /* ===== MENU ===== */
 .menu a {
   display: block;
-  padding: 12px;
-  margin-bottom: 10px;
+  padding: 10px;
+  margin-bottom: 6px;
   border-radius: 8px;
   text-decoration: none;
-  color: #334155;
+  color: #1e293b;
   font-size: 14px;
-  transition: 0.2s ease;
+  transition: 0.2s;
+}
+
+.menu a:hover {
+  background: #f1f5f9;
 }
 
 .menu a.active {
@@ -59,23 +60,30 @@
   color: white;
 }
 
-.menu a:hover {
-  background: #e2e8f0;
-}
-
-/* ===== PROFILE SECTION ===== */
 .profile {
+  padding: 20px 15px;   /* same horizontal padding as sidebar-content */
   border-top: 1px solid #e2e8f0;
-  padding-top: 20px;
-  font-size: 14px;
+  margin-top: auto;
 }
 
 .profile-name {
   font-weight: 600;
+  margin-bottom: 4px;
+}
+
+#sidebarRole {
+  display: block;
+  margin-bottom: 12px;   /* space before Sign Out */
 }
 
 .signout {
-  color: red;
+  font-size: 13px;
+  color: #ef4444;
   cursor: pointer;
-  margin-top: 10px;
+}
+
+
+.main {
+  margin-left: 260px; /* same width as sidebar */
+  padding: 40px;
 }
